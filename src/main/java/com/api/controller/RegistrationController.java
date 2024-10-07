@@ -29,12 +29,14 @@ public class RegistrationController {
 
     @PostMapping
     public ResponseEntity<RegistrationDto> createRegistration(@RequestBody RegistrationDto registrationDto) {
+
         RegistrationDto regDto = registrationService.createRegistration(registrationDto);
         return new ResponseEntity<>(regDto, HttpStatus.CREATED);
     }
 
     @DeleteMapping
     public ResponseEntity<String> deleteRegistration(@RequestParam long id) {
+
         registrationService.deleteRegistration(id);
         return new ResponseEntity<>("Data Deleted", HttpStatus.OK);
     }
@@ -42,6 +44,7 @@ public class RegistrationController {
     @PostMapping("/{id}")
     public ResponseEntity<Registration> updateRegistration(@PathVariable long id,
                                                            @RequestBody Registration registration) {
+
         Registration updateReg = registrationService.updateRegistration(id, registration);
         return new ResponseEntity<>(updateReg, HttpStatus.OK);
     }
@@ -49,6 +52,7 @@ public class RegistrationController {
     // Exception
     @GetMapping("/{id}")
     public ResponseEntity<RegistrationDto> getRegistrationById(@PathVariable() long id) {
+
         RegistrationDto dto = registrationService.getRegistrationById(id);
         return new ResponseEntity<>(dto, HttpStatus.OK);
     }

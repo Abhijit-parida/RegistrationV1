@@ -33,13 +33,11 @@ public class RegistrationService {
         return dto;
     }
 
-//    public List<Registration> getRegistration() {
-//        List<Registration> registrations = registrationRepository.findAll();
-//        return registrations;
-//    }
     public List<RegistrationDto> getRegistration() {
         List<Registration> registrations = registrationRepository.findAll();
-        List<RegistrationDto> dtos = registrations.stream().map(this::mapToDto).collect(Collectors.toList());
+        List<RegistrationDto> dtos = registrations.stream()
+                .map(this::mapToDto)
+                .collect(Collectors.toList());
         return dtos;
     }
 
